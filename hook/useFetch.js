@@ -5,111 +5,39 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 
 
 const BASE_URL = "http://localhost:3000";
-const cacheKey = `cache_recieve`;
-/*
-const useLiveEvents = () => {
-  const [events, setEvents] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState(null);
+//const cacheKey = `cache_recieve`;
 
-  useEffect(() => {
-    const loadUserId = async () => {
-      const id = await AsyncStorage.getItem('user_id');
-      setUserId(id);
-    };
-    loadUserId();
-  }, []);
-
-  useEffect(() => {
-    const fetchInitialData = async () => {
-      try {
-        const cached = await AsyncStorage.getItem(cacheKey);
-        if (cached) {
-          setEvents(JSON.parse(cached));
-        }
-        const res = await axios.get(`${BASE_URL}/receive`);
-        if(res.data && res.data.events) {
-          setEvents(res.data.events);
-          await AsyncStorage.setItem(cacheKey, JSON.stringify(res.data.events));
-        }
-        setIsLoading(false);
-      } catch (err) {
-        console.error("Initial fetch failed:", err);
-        setError(err);
-        setIsLoading(false);
-      }
-    };
-    fetchInitialData();
-  }, []);
-
-  useEffect(() => {
-    const socket = io(BASE_URL);
-
-    socket.on("connect", () => {
-      console.log("WebSocket connected");
-    });
-    
-    socket.on("new_event", async (newEvent) => {
-      if(!userId || newEvent.user_id !== parseInt(userID)) {
-        return;
-      }
-      
-      setEvents((prev) => {
-        
-        const exists = prev.find(e =>
-          e.timestamp === newEvent.timestamp &&
-          e.pill_dispensed === newEvent.pill_dispensed
-        );
-        if (exists) return prev;
-        
-        const updated = [newEvent, ...prev];
-        AsyncStorage.setItem(cacheKey, JSON.stringify(updated));
-        return updated;
-      });
-    });
-
-    socket.on("disconnect", () => {
-      console.log("WebSocket disconnected");
-    });
-
-    return () => socket.disconnect();
-  }, []);
-
-  return { data: events, isLoading, error };
-};
-    
-    
-export default useLiveEvents;
-*/
-
-
-const useFetch = (endpoint, method = "GET", body = null) => {
+const useFetch = (endpoint, method = "GET", body = null, userId = null) => {
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
   const [lastTimestamp, setLastTimestamp] = useState(null);
-  const cacheKey = `cache_${endpoint}`;
+  const intervalRef = useRef(null);
+
+  const cacheKey = `cache_${endpoint}${userId ? `_${userId}` : ""}`;
+
+
 
   const fetchData = async () => {
     setIsLoading(true);
 
     try {
-      const response = await axios({
-        method,
-        url: `${BASE_URL}/${endpoint}`,
-        data: body,
-      });
+      const url = `${BASE_URL}/${endpoint}${userId ? `?user_id=${userId}` : ""}`;
+      const response = await axios({ method, url, data: body });
 
-      //setData(response.data);
-      //await AsyncStorage.setItem(cacheKey, JSON.stringify(response.data));
-      //setError(null);
-      const newData = response.data;
+      const newData = response.data?.events || response.data;
       if(newData && newData.length > 0) {
-        const latestEvent = newData[newData.length - 1];
-        if(latestEvent.timestamp !== lastTimestamp) {
-          const updatedData = [...data, ...newData];
+        //const latestEvent = newData[newData.length - 1];
+        const filtered = newData.filter(item =>
+          !lastTimestamp || new Date(item.timestamp) > new Date(lastTimestamp)
+        );
+        //if(latestEvent.timestamp !== lastTimestamp) {
+        if (filtered.length > 0) {
+          const updatedData = [...data, ...filtered];
+          const latest = filtered[filtered.length - 1].timestamp;
+
           setData(updatedData);
-          setLastTimestamp(latestEvent.timestamp);
+          setLastTimestamp(latest);
           await AsyncStorage.setItem(cacheKey, JSON.stringify(updatedData));
           setError(null);
         }
@@ -121,7 +49,11 @@ const useFetch = (endpoint, method = "GET", body = null) => {
       try {
         const cacheData = await AsyncStorage.getItem(cacheKey);
         if (cacheData) {
-          setData(JSON.parse(cacheData));
+          const parsed = JSON.parse(cacheData);
+          setData(parse);
+          if (parsed.length > 0) {
+            setLastTimestamp(parsed[parsed.length - 1].timestamp);
+          }
         }
       } catch (cacheErr) {
         console.error("Error landing cached data:", cacheErr);
@@ -132,39 +64,31 @@ const useFetch = (endpoint, method = "GET", body = null) => {
   };
 
   useEffect(() => {
-    let interval;
 
-    const LoadInitialData = async () => {
+    const loadInitial= async () => {
       const cacheData = await AsyncStorage.getItem(cacheKey);
       if (cacheData) {
-        setData(JSON.parse(cacheData));
-      } else {
-        fetchData();
+        const parsed = JSON.parse(cacheData);
+        setData(parsed);
+        if (parsed.length > 0) {
+          setLastTimestamp(parsed[parsed.length - 1].timestamp);
+        }
       }
+        fetchData();
     };
 
-    LoadInitialData();
+    loadInitial();
 
-    if(method == "GET") {
-      //fetchData();
-
-      if(!isLoading){
+    if(method == "GET" && !intervalRef.current) {
+      intervalRef.current = setInterval(() => {
         fetchData();
-      }
+      }, 30000);
+    }
+  
+    return () => clearInterval(intervalRef.current);
+  }, [endpoint, method, userId]);
 
-      interval = setInterval(() => {
-        if(!isLoading) {
-          fetchData();
-      }
-    }, 30000);
-  }
-    return () => clearInterval(interval);
-  }, [endpoint, lastTimestamp, isLoading]);
-
-  const refetch = () => {
-    setIsLoading(true);
-    fetchData();
-  };
+  const refetch = () => fetchData();
 
   return { data, isLoading, error, refetch };
 };

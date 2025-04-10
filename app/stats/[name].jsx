@@ -27,7 +27,7 @@ const StatsPage = () => {
     PokemonFont: require("../../assets/fonts/pokemon_Gen1.ttf"),
   })
 
-  const { data, isLoading, error } = useFetch("receive");
+  const { data, isLoading, error } = useFetch("receive", "GET", null, name);
 
   if(!fontsLoaded) return null;
 
@@ -101,17 +101,13 @@ const StatsPage = () => {
               <View key={index} style={styles.eventCard}>
                 <View style={styles.statBox}><Text style={styles.stat}>🫀 Heart Rate: {event.heart_rate}</Text></View>
                 <View style={styles.statBox}>
-                  <Text 
-                    style={[
-                      styles.stat,
-                      roundedTemp >= 100.4 && styles.highTemp
-                    ]}    
-                  >
+                  <Text style={[styles.stat, roundedTemp >= 100.4 && styles.highTemp]}>
                     🌡️ Temperature: {roundedTemp}
                   </Text>
                 </View>
 
-              <View style={styles.statBox}><Text style={styles.stat}>💊 Pill Dispensed: {event.pill_dispensed}</Text></View>
+              <View style={styles.statBox}>
+                <Text style={styles.stat}>💊 Pill Dispensed: {event.pill_dispensed}</Text></View>
               <Text style={styles.timestamp}>⏱️ {event.timestamp}</Text>
             </View>
           );
