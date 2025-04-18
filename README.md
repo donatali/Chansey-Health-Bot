@@ -1,4 +1,4 @@
 # Chansey Health Monitor
-Daily temperature and heart rate home device to make health fun!
+Daily health monitoring home device to make health checkups fun for all!
 
 yay
