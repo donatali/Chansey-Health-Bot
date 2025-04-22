@@ -6,6 +6,18 @@ Our project is an at-home health monitoring device in a fun form factor to cater
   <img src="https://github.com/user-attachments/assets/e186d882-ac28-400c-911e-c493140237ad" alt="Expo Poster" width=75%>
 </p>
 
+## How It's Made:
+- Microcontroller: STM32L4RZI-P (Nucleo Board)
+- LCD Screen: 480x320 TFT LCD Breakout Board : 4 -wire Resistive Touchscreen
+- Distance Sensor: VL53LO/1XV2
+- Body Temperature: 
+- Temperature & Humidity Sensor: SHT31-D
+- RFID Reader (with NTAG213): RFID-RC522
+- Amplifier: PAM8302
+- Speaker: P1314A
+- Stepper Motor & Drivers: ROHS stepper motor 28BYJ-48
+- Vibration Motor
+
 ## Creators:
 <p align="center">
   <img src="https://github.com/user-attachments/assets/cb69dc84-8b30-41d6-a491-d0635e904a63" alt="Natalie Do" width=20% height=20%>
