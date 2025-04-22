@@ -1,7 +1,9 @@
 # Chansey Health Bot
 ### Daily health monitoring home device to make health checkups fun for all!
 
-Our project is an at-home health monitoring device in a fun form factor to cater to a wide audience from kids to Pokemon-loving adults. The device monitors basic health metrics such as heart rate and body temperature as well as environmental data such as temperature and humidity of the room it is placed in. After the user's diagnostic scan, Chansey will dispense pills based on the result.
+Our project is an at-home health monitoring device in a fun form factor to cater to a wide audience from kids to Pokemon-loving adults. The device monitors basic health metrics such as heart rate and body temperature as well as environmental data such as temperature and humidity of the room it is placed in. After the user's diagnostic scan, Chansey will dispense pills (multivitamins or fever reduction pills) based on the result of the body temperature. Chansey then wirelessly stores your full health history into our server. This information is made accessible with our PokeCenter app!
+
+![Image](https://github.com/user-attachments/assets/3f40f913-8a08-4390-b4fa-71df99b54e07)
 
 ## Creators:
 ![Image](https://github.com/user-attachments/assets/cb69dc84-8b30-41d6-a491-d0635e904a63) 
