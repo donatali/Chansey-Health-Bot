@@ -13,3 +13,6 @@ Our project is an at-home health monitoring device in a fun form factor to cater
   <img src="https://github.com/user-attachments/assets/fd8ae601-eaab-481a-82d9-3279626b37d9" alt="Abraham Vega" width=20% height=20%>
   <img src="https://github.com/user-attachments/assets/52934278-8449-435a-93e7-6df8fb7c5e14" alt="Kris Viana" width=20% height=20%>
   </p>
+
+### Special thanks to the EECS373 Staff for all the help and support
+Junyi Zhu, Matt Smith, James Carl, Anna Huang, Joseph Maffetone, Alec Zettel, and John McCloskey
