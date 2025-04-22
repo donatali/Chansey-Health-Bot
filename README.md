@@ -8,8 +8,8 @@ Our project is an at-home health monitoring device in a fun form factor to cater
 
 ## Creators:
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/cb69dc84-8b30-41d6-a491-d0635e904a63" alt="Natalie Do" width=15% height=15%>
-  <img src="https://github.com/user-attachments/assets/48ffa2cd-6232-49dc-ab59-d49bf1657685" alt="Ava Chang" width=15% height=15%>
-  <img src="https://github.com/user-attachments/assets/fd8ae601-eaab-481a-82d9-3279626b37d9" alt="Abraham Vega" width=15% height=15%>
-  <img src="https://github.com/user-attachments/assets/52934278-8449-435a-93e7-6df8fb7c5e14" alt="Kris Viana" width=15% height=15%>
+  <img src="https://github.com/user-attachments/assets/cb69dc84-8b30-41d6-a491-d0635e904a63" alt="Natalie Do" width=20% height=20%>
+  <img src="https://github.com/user-attachments/assets/48ffa2cd-6232-49dc-ab59-d49bf1657685" alt="Ava Chang" width=20% height=20%>
+  <img src="https://github.com/user-attachments/assets/fd8ae601-eaab-481a-82d9-3279626b37d9" alt="Abraham Vega" width=20% height=20%>
+  <img src="https://github.com/user-attachments/assets/52934278-8449-435a-93e7-6df8fb7c5e14" alt="Kris Viana" width=20% height=20%>
   </p>
