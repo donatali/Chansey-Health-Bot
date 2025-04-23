@@ -18,6 +18,8 @@ Our project is an at-home health monitoring device in a fun form factor to cater
 - Stepper Motor & Drivers: ROHS stepper motor 28BYJ-48
 - Vibration Motor
 
+## Demo:
+
 ## Creators:
 <p align="center">
   <img src="https://github.com/user-attachments/assets/cb69dc84-8b30-41d6-a491-d0635e904a63" alt="Natalie Do" width=20% height=20%>
