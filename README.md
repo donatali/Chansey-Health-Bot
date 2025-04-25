@@ -10,13 +10,14 @@ Our project is an at-home health monitoring device in a fun form factor to cater
 - Microcontroller: STM32L4RZI-P (Nucleo Board)
 - LCD Screen: 480x320 TFT LCD Breakout Board : 4 -wire Resistive Touchscreen
 - Distance Sensor: VL53LO/1XV2
-- Body Temperature: 
+- Body Temperature Sensor: MLX90614 Infrared Temperature Sensors 
 - Temperature & Humidity Sensor: SHT31-D
 - RFID Reader (with NTAG213): RFID-RC522
 - Amplifier: PAM8302
 - Speaker: P1314A
 - Stepper Motor & Drivers: ROHS stepper motor 28BYJ-48
 - Vibration Motor
+- Wireless communcation : Digi XBee 3
 
 ## Demo:
 
