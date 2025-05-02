@@ -48,3 +48,100 @@ Join our community of developers creating universal apps.
 
 - [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
 - [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+
+## Project Structure
+
+The project is organized into two main directories:
+
+### Client (React Native)
+- `/client` - React Native mobile application
+  - `/app` - App screens and navigation
+  - `/assets` - Images, fonts, and other static assets
+  - `/components` - Reusable UI components
+  - `/constants` - App constants and configuration
+  - `/hook` - Custom React hooks
+  - `/styles` - Shared styles
+  - `/utils` - Utility functions
+
+### Server (Python/Flask)
+- `/server` - Python Flask backend server
+  - `app.py` - Main server file
+  - `mappings.py` - User and pill type mappings
+  - `health_db.db` - SQLite database
+  - `.venv/` - Python virtual environment
+
+## Development
+
+### Server Setup (Python/Flask)
+1. Navigate to server directory:
+   ```bash
+   cd server
+   ```
+
+2. Activate virtual environment:
+   ```bash
+   source .venv/bin/activate
+   ```
+
+3. Initialize the database (first time only):
+   ```bash
+   python init_db.py
+   ```
+
+4. Start the server:
+   ```bash
+   python app.py
+   ```
+
+### Client Setup (React Native)
+1. Navigate to client directory:
+   ```bash
+   cd client
+   ```
+
+2. Install dependencies (first time only):
+   ```bash
+   npm install
+   ```
+
+3. Start the React Native app:
+   ```bash
+   npx expo start
+   ```
+
+4. Start the IOS:
+  ```bash
+  i
+  ```
+
+### Testing the Server
+You can test the server by sending simulated data using curl:
+```bash
+curl -X POST http://localhost:3000/test_data -H "Content-Type: application/json" -d '[1, 75, 98.6, 1]'
+```
+
+To retrieve data for a specific user (e.g., Abraham):
+```bash
+curl "http://localhost:3000/receive?user_id=1"
+```
+
+### XBee Configuration
+
+The server can run in two modes:
+1. Simulation Mode (default) - for testing without XBee hardware
+2. XBee Mode - for production with XBee devices
+
+To switch to XBee mode:
+1. Connect your XBee device
+2. In `server/app.py`, change:
+   ```python
+   SIMULATION_MODE = False
+   ```
+3. Verify your XBee port in `app.py`:
+   ```python
+   PORT = "/dev/tty.usbserial-AL02BZKQ"  # Update this to match your XBee port
+   ```
+4. Restart the server
+
+Note: Keep SIMULATION_MODE = True for development without XBee hardware.
+

@@ -1,0 +1,42 @@
+{
+  "expo": {
+    "name": "Chansey Health Monitoring App",
+    "slug": "chansey-health-monitoring",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icons/Chansey.jpg",
+    "scheme": "chansey-health",
+    "userInterfaceStyle": "automatic",
+    "newArchEnabled": true,
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.abrahamvegaa.chansey-health"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/icons/Chansey.jpg",
+        "backgroundColor": "#ffffff"
+      }
+    },
+    "web": {
+      "bundler": "metro",
+      "output": "static",
+      "favicon": "./assets/icons/Chansey.jpg"
+    },
+    "plugins": [
+      "expo-router",
+      [
+        "expo-splash-screen",
+        {
+          "image": "./assets/icons/Chansey.jpg",
+          "imageWidth": 200,
+          "resizeMode": "contain",
+          "backgroundColor": "#ffffff"
+        }
+      ]
+    ],
+    "experiments": {
+      "typedRoutes": true
+    }
+  }
+}

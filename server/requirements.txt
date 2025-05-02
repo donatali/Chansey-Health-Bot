@@ -1,0 +1,4 @@
+# Python dependencies for server
+flask
+flask-cors
+digi-xbee
