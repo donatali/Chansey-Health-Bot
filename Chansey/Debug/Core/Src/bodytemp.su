@@ -1,0 +1,2 @@
+../Core/Src/bodytemp.c:3:7:getBodyTemp	56	static
+../Core/Src/bodytemp.c:22:9:temp_ready	16	static

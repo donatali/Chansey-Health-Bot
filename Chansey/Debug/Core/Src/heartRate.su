@@ -1,0 +1,5 @@
+../Core/Src/heartRate.c:92:6:heartRate_init	8	static
+../Core/Src/heartRate.c:122:6:checkForBeat	24	static
+../Core/Src/heartRate.c:183:9:averageDCEstimator	16	static
+../Core/Src/heartRate.c:197:9:lowPassFIRFilter	24	static
+../Core/Src/heartRate.c:224:9:mul16	16	static

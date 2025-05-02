@@ -1,0 +1,3 @@
+../Core/Src/heart_rate_reader.c:17:6:heart_rate_init	24	static
+../Core/Src/heart_rate_reader.c:35:5:heart_rate_task	32	static
+../Core/Src/heart_rate_reader.c:74:5:final_hr_result	456	static

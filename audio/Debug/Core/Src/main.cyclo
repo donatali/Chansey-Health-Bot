@@ -1,0 +1,15 @@
+../Core/Src/main.c:91:6:fill_LUT	2
+../Core/Src/main.c:103:6:setComp	2
+../Core/Src/main.c:123:6:changeNote	2
+../Core/Src/main.c:135:6:TIM2_ISR	2
+../Core/Src/main.c:173:6:playNote	1
+../Core/Src/main.c:180:6:playSong	3
+../Core/Src/main.c:191:6:HAL_GPIO_EXTI_Callback	2
+../Core/Src/main.c:203:5:main	3
+../Core/Src/main.c:278:6:SystemClock_Config	4
+../Core/Src/main.c:329:13:MX_ADC1_Init	3
+../Core/Src/main.c:387:13:MX_DAC1_Init	3
+../Core/Src/main.c:431:13:MX_LPUART1_UART_Init	5
+../Core/Src/main.c:479:13:MX_TIM2_Init	4
+../Core/Src/main.c:524:13:MX_GPIO_Init	1
+../Core/Src/main.c:763:6:Error_Handler	1

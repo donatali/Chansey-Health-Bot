@@ -1,0 +1,2 @@
+../Core/Src/motors.c:29:6:HAL_GPIO_EXTI_Callback	15
+../Core/Src/motors.c:158:6:runMotor	21
