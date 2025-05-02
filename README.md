@@ -18,6 +18,7 @@ Our project is an at-home health monitoring device in a fun form factor to cater
 - Stepper Motor & Drivers: ROHS stepper motor 28BYJ-48
 - Vibration Motor
 - Wireless communcation : Digi XBee 3
+- Mobile Application : Python server and client-side app using react native
 
 ## Demo:
 [![Video Title](https://img.youtube.com/vi/hXiWXc6-l3U/0.jpg)](https://www.youtube.com/watch?v=hXiWXc6-l3U)
