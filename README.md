@@ -12,6 +12,7 @@ Our project is an at-home health monitoring device in a fun form factor to cater
 - Distance Sensor: VL53LO/1XV2
 - Body Temperature Sensor: MLX90614 Infrared Temperature Sensors 
 - Temperature & Humidity Sensor: SHT31-D
+- Heartrate sensor: MAX30102
 - RFID Reader (with NTAG213): RFID-RC522
 - Amplifier: PAM8302
 - Speaker: P1314A
